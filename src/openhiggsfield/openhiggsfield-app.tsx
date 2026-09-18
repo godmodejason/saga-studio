@@ -642,7 +642,7 @@ export function OpenHiggsfieldApp({ fontClassName = "" }: { fontClassName?: stri
           {workspaceMode === "characters" ? (
             <CharacterLibrary onBack={() => setWorkspaceMode("studio")} />
           ) : workspaceMode === "projects" ? (
-            <ProjectStudio onBack={() => setWorkspaceMode("studio")} />
+            <ProjectStudio onBack={() => setWorkspaceMode("studio")} onKeys={openKeys} />
           ) : (
             <>
               <Gallery

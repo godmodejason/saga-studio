@@ -45,6 +45,11 @@ export interface Shot {
   modelId: string;
   characterAssignments: ShotCharacterAssignment[];
   status: ShotStatus;
+  requestId?: string;
+  outputUrl?: string;
+  outputKind?: "image" | "video";
+  generatedAt?: number;
+  errorMessage?: string;
   createdAt: number;
   updatedAt: number;
 }

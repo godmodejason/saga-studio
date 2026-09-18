@@ -4014,6 +4014,34 @@ a.ohf-btn-solid {
 .saga-storyboard-placeholder span { color: var(--accent); font-size: 10px; letter-spacing: 0.15em; }
 .saga-storyboard-placeholder h2 { margin-top: 10px; color: var(--tx); font-size: 21px; }
 .saga-storyboard-placeholder p { max-width: 38ch; margin-top: 8px; color: var(--tx3); font-size: 12px; line-height: 1.6; }
+.saga-shot-status { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; margin-top: 16px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 7px; background: rgba(255, 255, 255, 0.018); color: var(--tx3); font-size: 11px; }
+.saga-shot-status strong { color: var(--tx); text-transform: uppercase; letter-spacing: 0.08em; }
+.saga-shot-status[data-status="queued"], .saga-shot-status[data-status="in_progress"] { border-color: var(--accent-32); background: var(--accent-08); }
+.saga-shot-status[data-status="queued"] strong, .saga-shot-status[data-status="in_progress"] strong, .saga-shot-status[data-status="completed"] strong { color: var(--accent); }
+.saga-shot-status[data-status="failed"] { border-color: var(--danger-line); background: var(--danger-bg); }
+.saga-shot-status[data-status="failed"] strong, .saga-shot-status[data-status="failed"] span { color: var(--danger); }
+.saga-shot-result { margin-top: 14px; overflow: hidden; border: 1px solid var(--accent-32); border-radius: 9px; background: #070908; }
+.saga-shot-result img, .saga-shot-result video { width: 100%; max-height: 420px; object-fit: contain; background: #050605; }
+.saga-shot-result > div { display: flex; justify-content: space-between; gap: 12px; padding: 9px 11px; color: var(--tx3); font-size: 10px; }
+.saga-shot-result small { color: var(--tx4); }
+.saga-storyboard { display: flex; flex-direction: column; gap: 28px; }
+.saga-storyboard-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; }
+.saga-storyboard-head h2 { margin-top: 5px; color: var(--tx); font-size: 22px; }
+.saga-storyboard-head > span { color: var(--tx4); font-size: 11px; }
+.saga-storyboard-scene { padding-top: 17px; border-top: 1px solid var(--line-2); }
+.saga-storyboard-scene-head { display: flex; justify-content: space-between; gap: 14px; margin-bottom: 12px; }
+.saga-storyboard-scene-head strong { color: var(--tx); font-size: 13px; }
+.saga-storyboard-scene-head span { color: var(--tx4); font-size: 10px; }
+.saga-storyboard-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+.saga-storyboard-shot { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--s1); }
+.saga-storyboard-shot:hover { border-color: var(--line-2); }
+.saga-storyboard-shot > img, .saga-storyboard-shot > video, .saga-storyboard-empty { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #0b0d0c; }
+.saga-storyboard-empty { display: grid; place-content: center; gap: 5px; text-align: center; color: var(--tx4); }
+.saga-storyboard-empty span { color: var(--accent); font-size: 17px; }
+.saga-storyboard-empty small { font-size: 10px; }
+.saga-storyboard-shot-copy { display: flex; flex-direction: column; gap: 4px; padding: 9px; }
+.saga-storyboard-shot-copy strong { overflow: hidden; color: var(--tx); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.saga-storyboard-shot-copy span { color: var(--tx4); font-size: 10px; }
 
 @media (max-width: 860px) {
   .saga-project-layout, .saga-scene-builder { grid-template-columns: 1fr; }
@@ -4028,4 +4056,6 @@ a.ohf-btn-solid {
   .saga-shot-heading-actions { justify-content: flex-start; }
   .saga-assignment { align-items: stretch; flex-wrap: wrap; }
   .saga-assignment select { flex: 1; }
+  .saga-storyboard-scene-head { align-items: flex-start; flex-direction: column; }
+  .saga-shot-result > div { align-items: flex-start; flex-direction: column; }
 }
