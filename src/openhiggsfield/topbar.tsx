@@ -20,6 +20,8 @@ export function Topbar({
   onKeys,
   characterMode,
   onCharacters,
+  projectMode,
+  onProjects,
 }: {
   view: GalleryView;
   onView: (next: GalleryView) => void;
@@ -28,6 +30,8 @@ export function Topbar({
   onKeys: () => void;
   characterMode: boolean;
   onCharacters: () => void;
+  projectMode: boolean;
+  onProjects: () => void;
 }) {
   const tabsRef = useRef<HTMLDivElement>(null);
   const [thumb, setThumb] = useState<{ x: number; w: number } | null>(null);
@@ -128,6 +132,17 @@ export function Topbar({
           whether one is held and opens the modal that sets it — and its lamp is
           the studio's liveness, the one place accent moves. */}
       <div className="ohf-bar ohf-enter-1">
+        <button
+          type="button"
+          className="ohf-key"
+          data-ready={projectMode}
+          onClick={onProjects}
+          aria-label={projectMode ? "Back to generation studio" : "Open Projects"}
+          title={projectMode ? "Back to generation studio" : "Open Projects"}
+        >
+          <span className="ohf-project-mark">S</span>
+          <span className="ohf-key-text">{projectMode ? "Studio" : "Projects"}</span>
+        </button>
         <button
           type="button"
           className="ohf-key"

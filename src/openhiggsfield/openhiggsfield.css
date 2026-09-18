@@ -3940,3 +3940,92 @@ a.ohf-btn-solid {
   .saga-detail-actions { justify-content: space-between; }
   .saga-panel { padding: 16px; }
 }
+
+/* ---------- production planning ---------- */
+
+.ohf-project-mark { display: grid; place-items: center; width: 15px; height: 15px; border: 1px solid currentColor; border-radius: 4px; color: var(--accent); font-size: 9px; font-weight: 700; }
+.saga-project-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 32px; width: min(1380px, 100%); margin: 0 auto; padding-top: 28px; }
+.saga-project-list { min-width: 0; }
+.saga-project-card { display: flex; flex-direction: column; gap: 5px; width: 100%; padding: 13px; margin-bottom: 7px; text-align: left; border: 1px solid transparent; border-radius: 9px; background: rgba(255, 255, 255, 0.018); color: var(--tx2); }
+.saga-project-card:hover { background: var(--s2); border-color: var(--line-2); }
+.saga-project-card[data-selected="true"] { background: var(--accent-08); border-color: var(--accent-32); }
+.saga-project-card strong { color: var(--tx); font-size: 13px; }
+.saga-project-card span { overflow: hidden; color: var(--tx3); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.saga-project-card small { color: var(--accent); font-size: 10px; }
+.saga-project-main { min-width: 0; animation: ohf-rise 0.3s var(--ease-slide); }
+.saga-project-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-bottom: 23px; border-bottom: 1px solid var(--line-2); }
+.saga-project-header .saga-field { margin-top: 9px; max-width: 480px; }
+.saga-project-actions { display: flex; align-items: end; gap: 12px; }
+.saga-compact-field { display: flex; flex-direction: column; gap: 5px; color: var(--tx4); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; }
+.saga-compact-field select,
+.saga-shot-editor select,
+.saga-assignment-panel select,
+.saga-cast-row select { min-height: 34px; padding: 0 9px; border: 1px solid var(--line-2); border-radius: 7px; background: var(--s2); color: var(--tx2); font: inherit; font-size: 11px; }
+.saga-project-tabs { display: flex; gap: 18px; margin: 20px 0; border-bottom: 1px solid var(--line); }
+.saga-project-tabs button { padding: 0 0 11px; color: var(--tx4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 2px solid transparent; }
+.saga-project-tabs button:hover { color: var(--tx); }
+.saga-project-tabs button[data-active="true"] { color: var(--accent); border-color: var(--accent); }
+.saga-overview { max-width: 720px; padding: 25px; border: 1px solid var(--line-2); border-radius: 11px; background: var(--s1); }
+.saga-overview h2 { margin: 7px 0 20px; font-size: 25px; letter-spacing: -0.03em; }
+.saga-overview-stats { display: flex; gap: 36px; margin-top: 25px; padding-top: 17px; border-top: 1px solid var(--line); }
+.saga-overview-stats div { display: flex; flex-direction: column; gap: 4px; }
+.saga-overview-stats strong { color: var(--accent); font-size: 18px; }
+.saga-overview-stats span { color: var(--tx4); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
+.saga-scene-builder { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 25px; }
+.saga-scene-rail { min-width: 0; }
+.saga-scene-card { display: grid; grid-template-columns: 27px minmax(0, 1fr); gap: 7px; width: 100%; padding: 11px 9px; margin-bottom: 6px; text-align: left; border-left: 2px solid transparent; color: var(--tx3); }
+.saga-scene-card:hover { background: var(--s1); color: var(--tx); }
+.saga-scene-card[data-selected="true"] { border-color: var(--accent); background: var(--accent-08); color: var(--tx); }
+.saga-scene-card b { color: var(--accent); font-size: 11px; }
+.saga-scene-card span { overflow: hidden; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.saga-scene-card small { grid-column: 2; color: var(--tx4); font-size: 10px; }
+.saga-scene-main { min-width: 0; }
+.saga-scene-heading, .saga-shot-heading, .saga-shot-editor-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; }
+.saga-scene-heading { margin-bottom: 17px; }
+.saga-scene-heading .saga-field { margin-top: 7px; }
+.saga-scene-actions, .saga-shot-heading-actions, .saga-shot-actions { display: flex; align-items: center; gap: 8px; }
+.saga-cast-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 17px; padding: 11px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.saga-cast-row > span { color: var(--tx4); font-size: 9px; letter-spacing: 0.1em; }
+.saga-cast-row > div { display: flex; flex-wrap: wrap; gap: 5px; }
+.saga-cast-chip { padding: 5px 8px; border: 1px solid var(--accent-32); border-radius: 6px; background: var(--accent-08); color: var(--accent); font-size: 10px; }
+.saga-shot-heading { margin: 30px 0 12px; }
+.saga-shot-heading h2 { margin-top: 5px; color: var(--tx); font-size: 15px; }
+.saga-shot-list { display: flex; flex-direction: column; gap: 5px; }
+.saga-shot-row { display: grid; grid-template-columns: 36px minmax(0, 1fr) 18px; align-items: center; gap: 10px; width: 100%; padding: 11px; text-align: left; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 255, 255, 0.015); color: var(--tx3); }
+.saga-shot-row:hover, .saga-shot-row[data-selected="true"] { border-color: var(--accent-32); background: var(--accent-08); color: var(--tx); }
+.saga-shot-row > b { color: var(--accent); font-size: 11px; }
+.saga-shot-row span { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.saga-shot-row strong { overflow: hidden; color: var(--tx); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.saga-shot-row small { color: var(--tx4); font-size: 10px; }
+.saga-shot-row i { color: var(--tx4); font-size: 18px; font-style: normal; }
+.saga-shot-editor { margin-top: 18px; padding: 18px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--s1); }
+.saga-shot-editor-head .saga-field { flex: 1; }
+.saga-shot-editor-head .saga-field input { font-size: 16px; font-weight: 600; }
+.saga-assignment-panel { margin-top: 18px; padding-top: 15px; border-top: 1px solid var(--line); }
+.saga-assignment-panel h2 { margin-top: 4px; color: var(--tx); font-size: 14px; }
+.saga-assignment { display: flex; align-items: center; gap: 10px; margin-top: 8px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 7px; }
+.saga-assignment > div { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
+.saga-assignment strong { color: var(--tx); font-size: 12px; }
+.saga-assignment span { color: var(--accent); font-size: 10px; }
+.saga-final-prompt { margin-top: 18px; padding: 14px; border-left: 2px solid var(--accent); background: rgba(209, 254, 23, 0.055); }
+.saga-final-prompt > span { color: var(--accent); font-size: 10px; font-weight: 650; letter-spacing: 0.14em; }
+.saga-final-prompt p { margin-top: 8px; color: var(--tx2); font-size: 12px; line-height: 1.65; }
+.saga-storyboard-placeholder { display: grid; place-content: center; min-height: 350px; padding: 30px; text-align: center; border: 1px dashed var(--line-2); border-radius: 11px; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 11px); }
+.saga-storyboard-placeholder span { color: var(--accent); font-size: 10px; letter-spacing: 0.15em; }
+.saga-storyboard-placeholder h2 { margin-top: 10px; color: var(--tx); font-size: 21px; }
+.saga-storyboard-placeholder p { max-width: 38ch; margin-top: 8px; color: var(--tx3); font-size: 12px; line-height: 1.6; }
+
+@media (max-width: 860px) {
+  .saga-project-layout, .saga-scene-builder { grid-template-columns: 1fr; }
+  .saga-project-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 7px; }
+  .saga-project-list .saga-section-kicker { grid-column: 1 / -1; }
+  .saga-project-card { margin: 0; }
+}
+@media (max-width: 560px) {
+  .saga-project-header, .saga-scene-heading, .saga-shot-heading, .saga-shot-editor-head { align-items: stretch; flex-direction: column; }
+  .saga-project-actions { align-items: stretch; flex-wrap: wrap; }
+  .saga-project-actions .saga-compact-field { flex: 1; }
+  .saga-shot-heading-actions { justify-content: flex-start; }
+  .saga-assignment { align-items: stretch; flex-wrap: wrap; }
+  .saga-assignment select { flex: 1; }
+}

@@ -16,6 +16,7 @@ import { useSettings } from "@/generation/stores/settings";
 import { GRAIN_URI, artFor } from "./artwork";
 import { Composer } from "./composer";
 import { CharacterLibrary } from "./character-library";
+import { ProjectStudio } from "./project-studio";
 import { fileNameFor, saveFile } from "./download";
 import { KeyModal } from "./key-modal";
 import {
@@ -182,7 +183,7 @@ export function OpenHiggsfieldApp({ fontClassName = "" }: { fontClassName?: stri
   const [saving, setSaving] = useState<SaveProgress | null>(null);
   const [keyConfigured, setKeyConfigured] = useState(false);
   const [keysOpen, setKeysOpen] = useState(false);
-  const [characterMode, setCharacterMode] = useState(false);
+  const [workspaceMode, setWorkspaceMode] = useState<"studio" | "characters" | "projects">("studio");
 
   const galleryRef = useRef<HTMLDivElement>(null);
   const rangeAnchor = useRef<number | null>(null);
@@ -632,12 +633,16 @@ export function OpenHiggsfieldApp({ fontClassName = "" }: { fontClassName?: stri
             busy={busy}
             keyConfigured={keyConfigured}
             onKeys={openKeys}
-            characterMode={characterMode}
-            onCharacters={() => setCharacterMode((current) => !current)}
+            characterMode={workspaceMode === "characters"}
+            onCharacters={() => setWorkspaceMode((current) => current === "characters" ? "studio" : "characters")}
+            projectMode={workspaceMode === "projects"}
+            onProjects={() => setWorkspaceMode((current) => current === "projects" ? "studio" : "projects")}
           />
 
-          {characterMode ? (
-            <CharacterLibrary onBack={() => setCharacterMode(false)} />
+          {workspaceMode === "characters" ? (
+            <CharacterLibrary onBack={() => setWorkspaceMode("studio")} />
+          ) : workspaceMode === "projects" ? (
+            <ProjectStudio onBack={() => setWorkspaceMode("studio")} />
           ) : (
             <>
               <Gallery
