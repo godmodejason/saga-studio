@@ -15,6 +15,7 @@ import { useSettings } from "@/generation/stores/settings";
 
 import { GRAIN_URI, artFor } from "./artwork";
 import { Composer } from "./composer";
+import { CharacterLibrary } from "./character-library";
 import { fileNameFor, saveFile } from "./download";
 import { KeyModal } from "./key-modal";
 import {
@@ -181,6 +182,7 @@ export function OpenHiggsfieldApp({ fontClassName = "" }: { fontClassName?: stri
   const [saving, setSaving] = useState<SaveProgress | null>(null);
   const [keyConfigured, setKeyConfigured] = useState(false);
   const [keysOpen, setKeysOpen] = useState(false);
+  const [characterMode, setCharacterMode] = useState(false);
 
   const galleryRef = useRef<HTMLDivElement>(null);
   const rangeAnchor = useRef<number | null>(null);
@@ -630,55 +632,63 @@ export function OpenHiggsfieldApp({ fontClassName = "" }: { fontClassName?: stri
             busy={busy}
             keyConfigured={keyConfigured}
             onKeys={openKeys}
+            characterMode={characterMode}
+            onCharacters={() => setCharacterMode((current) => !current)}
           />
 
-          <Gallery
-            view={view}
-            surface={surface}
-            items={visible}
-            runs={runsHere}
-            freshIds={freshIds}
-            picked={pickedSet}
-            onOpen={openViewer}
-            onPick={togglePick}
-            onReuse={retry}
-            onFavorite={toggleFavorite}
-            onDownload={downloadRun}
-            onDelete={deleteRun}
-            onStarter={applyStarter}
-            galleryRef={galleryRef}
-          />
-
-          <Composer
-            surface={surface}
-            model={model}
-            generating={busy}
-            error={error}
-            focusNonce={focusNonce}
-            history={history}
-            selecting={selected.length > 0}
-            selection={
-              <SelectionBar
-                records={pickedRecords}
-                saving={saving}
-                onDownload={downloadSelection}
-                onFavorite={favoritePicked}
-                onDelete={deletePicked}
-                onClose={clearPicked}
+          {characterMode ? (
+            <CharacterLibrary onBack={() => setCharacterMode(false)} />
+          ) : (
+            <>
+              <Gallery
+                view={view}
+                surface={surface}
+                items={visible}
+                runs={runsHere}
+                freshIds={freshIds}
+                picked={pickedSet}
+                onOpen={openViewer}
+                onPick={togglePick}
+                onReuse={retry}
+                onFavorite={toggleFavorite}
+                onDownload={downloadRun}
+                onDelete={deleteRun}
+                onStarter={applyStarter}
+                galleryRef={galleryRef}
               />
-            }
-            onError={setError}
-            onGenerate={runGenerate}
-            notice={
-              deleted && (
-                <UndoBar
-                  records={deleted}
-                  onUndo={restoreDeleted}
-                  onDismiss={dismissDeleted}
-                />
-              )
-            }
-          />
+
+              <Composer
+                surface={surface}
+                model={model}
+                generating={busy}
+                error={error}
+                focusNonce={focusNonce}
+                history={history}
+                selecting={selected.length > 0}
+                selection={
+                  <SelectionBar
+                    records={pickedRecords}
+                    saving={saving}
+                    onDownload={downloadSelection}
+                    onFavorite={favoritePicked}
+                    onDelete={deletePicked}
+                    onClose={clearPicked}
+                  />
+                }
+                onError={setError}
+                onGenerate={runGenerate}
+                notice={
+                  deleted && (
+                    <UndoBar
+                      records={deleted}
+                      onUndo={restoreDeleted}
+                      onDismiss={dismissDeleted}
+                    />
+                  )
+                }
+              />
+            </>
+          )}
         </main>
 
         {viewerItem && (

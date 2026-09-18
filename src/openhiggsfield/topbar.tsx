@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { VIEWS, VIEW_LABELS, type GalleryView } from "./data";
-import { AssetsIcon, HeartIcon, ImageIcon, KeyIcon, VideoIcon } from "./icons";
+import { AssetsIcon, CharacterIcon, HeartIcon, ImageIcon, KeyIcon, VideoIcon } from "./icons";
 
 const VIEW_ICONS: Record<GalleryView, () => React.ReactNode> = {
   image: () => <ImageIcon />,
@@ -18,12 +18,16 @@ export function Topbar({
   busy,
   keyConfigured,
   onKeys,
+  characterMode,
+  onCharacters,
 }: {
   view: GalleryView;
   onView: (next: GalleryView) => void;
   busy: boolean;
   keyConfigured: boolean;
   onKeys: () => void;
+  characterMode: boolean;
+  onCharacters: () => void;
 }) {
   const tabsRef = useRef<HTMLDivElement>(null);
   const [thumb, setThumb] = useState<{ x: number; w: number } | null>(null);
@@ -124,6 +128,17 @@ export function Topbar({
           whether one is held and opens the modal that sets it — and its lamp is
           the studio's liveness, the one place accent moves. */}
       <div className="ohf-bar ohf-enter-1">
+        <button
+          type="button"
+          className="ohf-key"
+          data-ready={characterMode}
+          onClick={onCharacters}
+          aria-label={characterMode ? "Back to generation studio" : "Open Character Library"}
+          title={characterMode ? "Back to generation studio" : "Open Character Library"}
+        >
+          <CharacterIcon />
+          <span className="ohf-key-text">{characterMode ? "Studio" : "Characters"}</span>
+        </button>
         <button
           type="button"
           className="ohf-key"

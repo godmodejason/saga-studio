@@ -71,6 +71,15 @@ export function KeyIcon({ size = 15 }: IconProps) {
   );
 }
 
+export function CharacterIcon({ size = 15 }: IconProps) {
+  return (
+    <svg {...base(size)}>
+      <circle cx="8" cy="5.3" r="2.5" />
+      <path d="M3.3 13.3c.7-2.35 2.25-3.55 4.7-3.55s4 1.2 4.7 3.55" />
+    </svg>
+  );
+}
+
 export function CaretDownIcon({ size = 10 }: IconProps) {
   return (
     <svg {...base(size)}>
