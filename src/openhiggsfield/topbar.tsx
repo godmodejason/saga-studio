@@ -72,7 +72,7 @@ export function Topbar({
 
   return (
     <div className="ohf-topbar">
-      <h1 className="ohf-sr">OpenHiggsfield AI — Open source AI studio</h1>
+      <h1 className="ohf-sr">SAGA Studio — AI Filmmaking From Script to Shot.</h1>
 
       <div className="ohf-bar ohf-enter-1">
         <div

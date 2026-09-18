@@ -1,6 +1,6 @@
-# OpenHiggsfield AI — Open-Source Alternative to Higgsfield AI
+# SAGA Studio — AI Filmmaking From Script to Shot.
 
-> **The free, open-source alternative to Higgsfield AI.** Generate images and
+> **AI Filmmaking From Script to Shot.** Generate images and
 > videos with 38 models from one prompt bar — no closed ecosystem, no studio
 > subscription.
 
@@ -13,7 +13,7 @@ platform key (`id:secret`) to start generating. The studio itself is free.
 
 ---
 
-**Why OpenHiggsfield AI instead of Higgsfield AI?**
+**Why SAGA Studio?**
 
 - **Free & open-source** — no studio subscription, no vendor lock-in
 - **Self-hosted** — clone it, run it, change it

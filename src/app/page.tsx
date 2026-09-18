@@ -17,6 +17,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-export default function OpenHiggsfieldPage() {
+export default function SagaStudioPage() {
   return <OpenHiggsfieldApp fontClassName={inter.variable} />;
 }
